@@ -1,0 +1,37 @@
+.todo-list {
+    min-height: 100vh;
+    padding: 20px;
+    box-sizing: border-box;
+    background-color: var(--white-color);
+    opacity: 0.9;
+}
+.todo-item {
+    position: relative;
+    box-shadow: var(--shadow);
+    text-align: left;
+    height: 200px;
+    box-sizing: border-box;
+    padding: var(--todo-item);
+    margin-bottom: 20px;
+}
+.todo-item__title {
+    font-size: var(--font-size-title);
+    font-weight: var(--font-weight-bold);
+    margin-bottom: 20px;
+}
+.todo-item__body {
+
+}
+.todo-item__btn {
+    position: absolute;
+    top: 50%;
+    right: var(--todo-item);
+    transform: translateY(-50%);
+    color: var(--red-color);
+    font-size: var(--font-size-title);
+    cursor: pointer;
+    transition: 0.5s;
+}
+.todo-item__btn:hover {
+    font-size: var(--font-size-logo);
+}
