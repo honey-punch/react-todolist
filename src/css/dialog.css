@@ -24,7 +24,15 @@
 }
 .dialog input {
     width: 100%;
+    padding: 6px;
     box-sizing: border-box;
+    border-bottom: 1px solid var(--grey-color);
+    transition: 0.5s;
+    margin-bottom: 10px;
+    font-size: var(--font-size-medium);
+}
+.dialog input:focus {
+    border-bottom: 1.5px solid;
 }
 .dialog__btn {
     box-sizing: border-box;

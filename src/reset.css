@@ -44,3 +44,9 @@ table {
 button {
 	background: none;
 }
+input {
+	border: none;
+}    
+input:focus {
+	outline: none;
+}

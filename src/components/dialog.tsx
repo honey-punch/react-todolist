@@ -13,7 +13,7 @@ export default function Dialog(props: Props) {
         <form className='dialog' onSubmit={props.onSubmit}>
             <h2 className='dialog__head'>New To do!</h2>
             
-            <h3 className='dialog__title'>To do title</h3>
+            <h3 className='dialog__title'>Title</h3>
             <input
                 type="text"
                 placeholder='type title'
@@ -22,7 +22,7 @@ export default function Dialog(props: Props) {
                 onChange={props.onChange}
                 />
             
-            <h3 className='dialog__body'>To do body</h3>
+            <h3 className='dialog__body'>Body</h3>
             <input
                 type="text"
                 placeholder='type body'
