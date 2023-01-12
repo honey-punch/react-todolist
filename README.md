@@ -24,3 +24,4 @@
 
     -Dialog의 add 버튼으로 TodoList에 TodoItem을 배열 형태로 추가
     -TodoItem의 -버튼으로 배열에서 TodoItem 삭제
+    -TodoItem의 check버튼으로 해당 TodoItem의 title, body에 line-through
