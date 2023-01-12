@@ -12,7 +12,7 @@
     font-size: var(--font-size-logo);
     font-weight: var(--font-weight-bold);
     color: var(--white-color);
-    height: 40px;
+    height: 32px;
 }
 .header__logo img {
     height: 100%;
