@@ -7,6 +7,7 @@ export type Todo = {
     id: number;
     title: string;
     body: string;
+    checked: boolean;
 }
 
 export function AppLayout() {
@@ -33,6 +34,7 @@ export function AppLayout() {
             id: nextId.current,
             title: title,
             body: body,
+            checked: false,
         }
         setTodos(todos.concat(todo));
         nextId.current++;
@@ -51,6 +53,10 @@ export function AppLayout() {
         setTodos(todos.filter((todo) => todo.id !== id))
     }
 
+    const onToggle = (id: number) => {
+        setTodos(todos.map((todo) => todo.id === id ? {...todo, checked: !todo.checked}: todo))
+    }
+
     const [dialogState, setDialogState] = useState(false);
     const toggleDialog = () => {
         setDialogState(!dialogState);
@@ -62,7 +68,7 @@ export function AppLayout() {
     return (
         <div className="app-layout">
             <Header toggleDialog={toggleDialog}></Header>
-            <TodoList todos={todos} onRemove={onRemove}></TodoList>
+            <TodoList todos={todos} onRemove={onRemove} onToggle={onToggle}></TodoList>
             {dialogState && <Dialog
                                 values={values}
                                 onSubmit={onSubmit}

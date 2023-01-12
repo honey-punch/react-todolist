@@ -6,6 +6,7 @@ import {Todo} from 'AppLayout';
 type Props = {
     todos: Array<Todo>;
     onRemove: (id: number) => void; 
+    onToggle: (id: number) => void;
 }
 
 export default function TodoList(props: Props) {
@@ -17,6 +18,7 @@ export default function TodoList(props: Props) {
                                         todo={todo}
                                         key={todo.id}
                                         onRemove={props.onRemove}
+                                        onToggle={props.onToggle}
                                         />)
                 )
             }

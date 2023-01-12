@@ -22,16 +22,31 @@
 .todo-item__body {
 
 }
-.todo-item__btn {
+.todo-item__btns {
     position: absolute;
     top: 50%;
     right: var(--todo-item);
     transform: translateY(-50%);
-    color: var(--red-color);
     font-size: var(--font-size-title);
+}
+.todo-item__check {
     cursor: pointer;
+    color: var(--main-color);
+    transition: 0.5s;
+    margin-right: 10px;
+}
+.todo-item__check:hover {
+    font-size: var(--font-size-logo);
+}
+.todo-item__remove {
+    cursor: pointer;
+    color: var(--red-color);
     transition: 0.5s;
 }
-.todo-item__btn:hover {
+.todo-item__remove:hover {
     font-size: var(--font-size-logo);
+}
+.checked {
+    text-decoration: line-through;
+    color: var(--grey-color);
 }
