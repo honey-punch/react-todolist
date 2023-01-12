@@ -4,11 +4,12 @@
 
 :root {
   /* color */
-  --main-color: #15b44c;
+  --main-color: #1fb6b6;
   --red-color: rgb(186, 0, 0);
   --white-color: rgb(255, 255, 255);
   --grey-color: rgb(160, 160, 160);
   --light-grey-color: rgb(208, 208, 208);
+  --main-gradient-color: linear-gradient(135deg, #10c15a, #1fb6b6);
   /* shadow */
   --shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   /* font */

@@ -5,13 +5,17 @@
     justify-content: center;
     align-items: center;
     position: relative;
-    background-color: var(--main-color);
-    font-family: 'Josefin Sans', sans-serif;
+    background: var(--main-gradient-color);
+    /* font-family: 'Josefin Sans', sans-serif; */
 }
 .header__logo {
     font-size: var(--font-size-logo);
-    font-weight: var(--font-weight-regular);
+    font-weight: var(--font-weight-bold);
     color: var(--white-color);
+    height: 40px;
+}
+.header__logo img {
+    height: 100%;
 }
 
 .header__btn {
