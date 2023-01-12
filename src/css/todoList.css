@@ -1,6 +1,6 @@
 .todo-list {
     min-height: 100vh;
-    padding: 20px;
+    padding: var(--todo-item);
     box-sizing: border-box;
     background-color: var(--white-color);
     opacity: 0.9;
@@ -13,6 +13,7 @@
     box-sizing: border-box;
     padding: var(--todo-item);
     margin-bottom: 20px;
+    border-radius: 20px;
 }
 .todo-item__title {
     font-size: var(--font-size-title);
@@ -33,7 +34,7 @@
     cursor: pointer;
     color: var(--main-color);
     transition: 0.5s;
-    margin-right: 10px;
+    margin-right: 12px;
 }
 .todo-item__check:hover {
     font-size: var(--font-size-logo);
