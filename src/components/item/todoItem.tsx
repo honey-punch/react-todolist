@@ -11,6 +11,7 @@ type Props = {
 
 export default function TodoItem(props: Props) {
     const {id, title, body, checked} = props.todo;
+
     return (
         <li className="todo-item">
             <h4 className={cn('todo-item__title', {checked})}>{title}</h4>
@@ -19,7 +20,12 @@ export default function TodoItem(props: Props) {
                 <button className={cn('todo-item__check', {checked})} onClick={() => props.onToggle(id)}>
                     {checked ? <i className="fa-solid fa-circle-check"></i> : <i className="fa-regular fa-circle-check"></i>}
                 </button>
-                <button className="todo-item__remove" onClick={() => props.onRemove(id)}>
+                <button
+                    className="todo-item__remove"
+                    onClick={() => {
+                        props.onRemove(id)
+                        alert('리스트를 삭제했습니다.')
+                    }}>
                     <i className="fa-solid fa-circle-minus"></i>
                 </button>
             </div>
