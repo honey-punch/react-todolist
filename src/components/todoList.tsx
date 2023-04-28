@@ -1,4 +1,3 @@
-import React, { ReactNode } from 'react';
 import 'css/todoList.css';
 import TodoItem from 'components/item/todoItem';
 import {Todo} from 'AppLayout';
@@ -12,6 +11,7 @@ type Props = {
 export default function TodoList(props: Props) {
     return (
         <ul className='todo-list'>
+            {/* todos 배열을 가져와 todoitem 컴포넌트로 맵핑하고 todo객체와 함수 넘겨줌 */}
             {
                 props.todos.map(
                     (todo: Todo) => (<TodoItem

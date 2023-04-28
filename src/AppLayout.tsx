@@ -1,4 +1,4 @@
-import React, { Children, ReactEventHandler, useRef, useState } from 'react';
+import React, { useState, useRef } from 'react';
 import Header from 'components/header';
 import TodoList from 'components/todoList';
 import Dialog from 'components/dialog';
@@ -12,23 +12,27 @@ export type Todo = {
 
 export function AppLayout() {
     const [todos, setTodos] = useState(Array<Todo>)
-    const [values, setValue] = useState({
+    // dialog input의 name, value속성을 가져와 업데이트 하기위한 state
+    const [values, setValues] = useState({
         title: '',
         body: '',
     });
-    //const {title, body} = values;
 
+    // dialog의 input태그에 입력되는 텍스트에 따라 values state를 업데이트하는 함수
     const onChange = ((e: React.ChangeEvent<HTMLInputElement>) => {
         e.preventDefault();
+        // dialog의 e.target(input태그)의 value, name 속성을 가져와서 values 업데이트
         const {value, name} = e.target;
-        setValue({
+        setValues({
             ...values,
             [name]: value
         });
     });
 
-    const nextId = useRef(1);
+    // todo가 추가될때마다 고유한 id값을 배열의 index처럼 넣기 위한 변수
+    const nextId = useRef(0);
 
+    // dialog의 input태그에 입력되는 값으로 todo 객체 생성후 todos에 추가하는 함수
     const onInsert = (title: string, body: string) => {
         const todo: Todo = {
             id: nextId.current,
@@ -36,25 +40,31 @@ export function AppLayout() {
             body: body,
             checked: false,
         }
+        // state는 불변성을 유지하기 때문에 push대신 concat사용
         setTodos(todos.concat(todo));
-        nextId.current++;
+        nextId.current += 1
     }
+
     const onSubmit = ((e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
+        // onChange로 업데이트된 values의 title, body로 todo객체 생성 후 todos에 추가
         onInsert(values.title, values.body);
-        setValue({
+        // dialog에 입력된 value 초기화
+        setValues({
             title: '',
             body: '',
         });
         setDialogState(false);
     })
 
+    // todoitem으로 전달해 todoitem을 클릭했을 때 해당 todo객체의 id값을 받아와 그 id를 제외한 것만 filter하는 함수
     const onRemove = (id: number) => {
-        setTodos(todos.filter((todo) => todo.id !== id))
+        setTodos(todos.filter((todo) => todo.id !== id));
     }
 
+    // todoitem으로 전달해 todoitem을 클릭했을 때 해당 todo객체의 id값을 받아와 checked의 상태를 바꿔주는 함수
     const onToggle = (id: number) => {
-        setTodos(todos.map((todo) => todo.id === id ? {...todo, checked: !todo.checked}: todo))
+        setTodos(todos.map((todo) => todo.id === id ? {...todo, checked: !todo.checked} : todo));
     }
 
     const [dialogState, setDialogState] = useState(false);
